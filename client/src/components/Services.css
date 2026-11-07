@@ -1,0 +1,189 @@
+
+/* SERVICES SECTION */
+
+.services-section {
+  width: 100%;
+  padding: 90px 7%;
+  background: #f7f8fa;
+}
+
+/* HEADING */
+
+.services-heading {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+.services-heading p {
+  color: #ff4b91;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 35px;
+  position: relative;
+}
+
+/* Animated Line */
+
+.services-heading p::after {
+  content: '';
+  position: absolute;
+  width: 105px;
+  height: 2px;
+  background: #dddddd;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Moving Pink Dot */
+
+.services-heading p::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff4b91;
+  border-radius: 50%;
+  bottom: -24px;
+  left: calc(50% - 52px);
+  animation: moveDot 3s ease-in-out infinite alternate;
+}
+
+@keyframes moveDot {
+  from {
+    left: calc(50% - 52px);
+  }
+
+  to {
+    left: calc(50% + 42px);
+  }
+}
+
+.services-heading h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 700;
+  color: #222936;
+}
+
+/* CARDS CONTAINER */
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+/* SERVICE CARD */
+
+.service-card {
+  background: #ffffff;
+  padding: 30px 25px;
+  min-height: 300px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+/* ICON */
+
+.service-icon {
+  font-size: 45px;
+  margin-bottom: 25px;
+}
+
+/* CARD TITLE */
+
+.service-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  color: #222936;
+  margin-bottom: 20px;
+}
+
+/* DESCRIPTION */
+
+.service-card p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 2;
+  color: #444444;
+}
+
+/* HOVER IMAGE */
+
+.service-image {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  margin-top: 0;
+  overflow: hidden;
+
+  transition: height 0.5s ease,
+              opacity 0.5s ease,
+              margin-top 0.5s ease;
+}
+
+.service-image img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mouse Hover */
+
+.service-card:hover .service-image {
+  height: 190px;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+  .services-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .services-section {
+    padding: 70px 5%;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .services-container {
+    grid-template-columns: 1fr;
+  }
+
+  .services-heading h2 {
+    font-size: 28px;
+  }
+
+  .service-card h3 {
+    font-size: 22px;
+  }
+
+  .service-card p {
+    font-size: 15px;
+  }
+
+  /* Mobile par images visible rahengi */
+  .service-image {
+    height: 190px;
+    opacity: 1;
+    margin-top: 20px;
+  }
+}

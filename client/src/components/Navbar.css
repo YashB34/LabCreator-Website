@@ -1,0 +1,274 @@
+
+/* ===== MAIN NAVBAR ===== */
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding: 15px 3%;
+  background: transparent;
+  transition: all 0.35s ease;
+}
+
+/* ===== LOGO ===== */
+
+.navbar .logo {
+  flex-shrink: 0;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.navbar .brand {
+  color: #ff4b91;
+  font-size: 11px;
+  padding-left: 6px;
+  margin-top: 5px;
+}
+
+/* ===== NAVIGATION LINKS ===== */
+
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.navbar .nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.navbar .nav-links a:hover {
+  color: #ff4b91;
+}
+
+.arrow {
+  font-size: 17px;
+}
+
+/* ===== DROPDOWN ===== */
+
+.navbar .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 280px;
+
+  margin-top: 20px;
+  padding: 12px 0;
+
+  background: white;
+  list-style: none;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s ease;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar .dropdown-menu li a {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 25px;
+
+  color: #263238;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.navbar .dropdown-menu li a:hover {
+  color: #ff4b91;
+  background: #f8f8f8;
+}
+
+.navbar .dropdown-menu li a span {
+  color: #999;
+  font-size: 18px;
+}
+
+/* ===== FREE QUOTE BUTTON ===== */
+
+.navbar .quote-button {
+  flex-shrink: 0;
+  padding: 16px 25px;
+
+  background: #ff4b91;
+  color: white;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.navbar .quote-button:hover {
+  background: #e52c76;
+}
+
+/* ===== SCROLL EFFECT ===== */
+
+nav.navbar.scrolled {
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled .logo {
+  color: #263238;
+}
+
+.navbar.scrolled .nav-links > li > a {
+  color: #263238;
+}
+
+.navbar.scrolled .nav-links > li > a:hover {
+  color: #ff4b91;
+}
+
+/* ===== HAMBURGER ===== */
+
+.navbar .hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.navbar .hamburger span {
+  width: 27px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+}
+
+.navbar.scrolled .hamburger span {
+  background: #263238;
+}
+
+/* ===== TABLET AND MOBILE ===== */
+
+@media (max-width: 992px) {
+
+  nav.navbar {
+    padding: 14px 4%;
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+  }
+
+  .navbar .hamburger {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .navbar .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+
+    padding: 12px 5%;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.12);
+  }
+
+  .navbar .nav-links.mobile-open {
+    display: flex;
+  }
+
+  .navbar .nav-links > li {
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .navbar .nav-links > li > a {
+    color: #263238;
+    font-size: 14px;
+  }
+
+  /* Mobile dropdown */
+  .navbar .dropdown-menu {
+    display: none;
+    position: static;
+    width: 100%;
+
+    margin-top: 10px;
+    padding: 5px 0;
+
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navbar .dropdown-menu li a {
+    color: #263238;
+  }
+
+  .navbar .quote-button {
+    display: none;
+  }
+}
+
+/* ===== SMALL MOBILE ===== */
+
+@media (max-width: 480px) {
+  .navbar .logo {
+    font-size: 21px;
+  }
+
+  .navbar .brand {
+    font-size: 9px;
+  }
+}
